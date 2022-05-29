@@ -7,17 +7,18 @@ export default function Homepage() {
 
   if (loading) return <p>Loading...</p>
   if (error) return <p>Something went wrong :S </p>
-  console.log(data)
+  // console.log(data)
 
   return (
     <div>
-        {data.data.map(x => x.attributes).map(story => (
+        {data.data.map(story => (
             <div key={story.id} className="story-board"> 
-                <div className='like'> { story.like } </div>
-                <h1>{ story.title }</h1>
+                <h1>{ story.attributes.title }</h1>
+                
+                <small className='like'> Likes:  { story.attributes.like } </small>
 
-                <small>console list</small>
-                <p>{(story.body || '').substring(0,200)}...</p>
+                {/* <small>console list</small> */}
+                <p className="story">{(story.attributes.body || '').substring(0,200)}...</p>
                 <Link to={`/stories/${story.id}`}>Read more</Link>
             </div>
         ))}
