@@ -19,7 +19,7 @@
     },
     "like": {
       "type": "integer",
-      "required": true,
+      "required": false,
       "default": 1
     },
     "body": {

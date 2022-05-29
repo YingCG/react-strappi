@@ -1,0 +1,48 @@
+import React, { useState } from 'react'
+import axios from 'axios'
+
+export default function FileUpload() {
+    
+    const [subject, setSubject] = useState({
+        title: '',
+        like: '',
+        body: '',
+        picture: ''
+    })
+
+    const refreshPage = ({target: {name, value} }) => {
+       setSubject(prev => ({
+           ...prev,
+           [name] : value
+       }))
+    }
+    
+    const submitStory = async (event) => {
+        event.preventDefault()
+
+        try {
+            console.log(subject)
+            const response = await axios.post(
+                'http://localhost:1337/api/stories',
+                { data: subject }
+            )
+            console.log("Fileupload.handleSubmit upload_res", response)
+        } catch (error) {
+            //setSubject({error})
+        }
+    }  
+
+  return (
+    <div>
+      <form onSubmit={submitStory}>
+        <input type='text' name='title' value={subject.title} onChange={refreshPage}/>
+        <input type='number' name='like' value={subject.like} onChange={refreshPage}/>
+        <input type='text' name='body' value={subject.body} onChange={refreshPage}/>
+        <input type='file' name='picture' value={subject.picture} onChange={refreshPage}/>
+        <button>Post</button>
+      </form>
+    </div>
+  )
+}
+
+//https://www.youtube.com/watch?v=A4VZyo6BrJA

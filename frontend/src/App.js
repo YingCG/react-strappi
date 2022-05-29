@@ -5,7 +5,7 @@ import Header from './components/Header';
 import Homepage from './pages/Homepage';
 import Stories from './pages/Stories'
 import Portfolio from './pages/Portfolio';
-import FileUpload from "./pages/FileUpload";
+import PostStory from "./pages/PostStory";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
           <Route exact path="/stories" element={<Stories />} />
           <Route exact path="/stories/:id" element={<Stories />} />
           <Route exact path="/portfolio/:id" element={<Portfolio />} />
-          <Route exact path="/stories/post" element={<FileUpload />} />
+          <Route exact path="/stories/upload" element={<PostStory />} />
         </Routes>
       </Router>
      

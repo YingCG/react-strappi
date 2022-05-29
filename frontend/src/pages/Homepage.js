@@ -7,7 +7,7 @@ export default function Homepage() {
 
   if (loading) return <p>Loading...</p>
   if (error) return <p>Something went wrong :S </p>
-  // console.log(data)
+  console.log(data)
 
   return (
     <div>
@@ -20,6 +20,7 @@ export default function Homepage() {
                 {/* <small>console list</small> */}
                 <p className="story">{(story.attributes.body || '').substring(0,200)}...</p>
                 <Link to={`/stories/${story.id}`}>Read more</Link>
+                <div className="story-img">{ story.picture }</div>
             </div>
         ))}
     </div>

@@ -19,6 +19,7 @@ export default function Stories() {
       <small className='like'></small>
 
       <p>{ story.body }</p>
+      <div className="story-img">{ story.picture }</div>
     </div>
   )
 }
